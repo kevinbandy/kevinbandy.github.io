@@ -21,7 +21,7 @@ function buildTechnologyBlock(technology) {
 
 	$image
 		.addClass('technology-logo')
-		.attr("href", getLogoUri(technology.logo));
+		.attr("src", getLogoUri(technology.logo));
 	$heading
 		.addClass('technology-heading')
 		.text(technology.technology);

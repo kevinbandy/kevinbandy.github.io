@@ -1,11 +1,18 @@
 $color-red: #A22;
 $color-blue: #22A;
 $color-grey: #333;
+$size-ipad: 1024px;
 
 @mixin colorButton($primaryColor) {
 	background-color: $primaryColor;
 	border-color: lighten($primaryColor, 30%);
 	box-shadow: 1px 2px 7px rgba(darken($primaryColor, 10%), 0.4);
+}
+
+@mixin media($maxWidth) {
+	@media only screen and (max-width: $maxWidth) {
+		@content;
+	}
 }
 
 body {
@@ -14,7 +21,13 @@ body {
 
 #technologies-list {
 	list-style: none;
-	padding: 0;
+	max-width: 80%;
+    margin: 0 auto;
+    padding: 0;
+
+    @include media($size-ipad) {
+    	max-width: 90%;
+    }
 }
 
 .technology {
@@ -26,7 +39,14 @@ body {
 	&-logo {
 		width: 50px;
 		height: 50px;
-		margin-right: 8px;
+		margin-right: 12px;
+
+		@include media($size-ipad) {
+			min-width: 150px;
+			width: 150px;
+			height: 150px;
+			margin-right: 40px;
+		}
 	}
 
 	&-heading {
@@ -34,11 +54,19 @@ body {
 		align-items: center;
 		margin: 0 0 4px;
 		font-size: 20px;
+
+		@include media($size-ipad) {
+			font-size: 3em;
+		}
 	}
 
 	&-description {
 		margin: 0;
 		color: lighten($color-grey, 20%);
+
+		@include media($size-ipad) {
+			font-size: 2em;
+		}
 	}
 
 	&-level {
@@ -53,6 +81,11 @@ body {
 		text-transform: uppercase;
 		cursor: default;
 		color: white;
+
+		@include media($size-ipad) {
+			margin-left: 24px;
+			font-size: .4em;
+		}
 
 		&-expert {
 			@include colorButton($color-red);
