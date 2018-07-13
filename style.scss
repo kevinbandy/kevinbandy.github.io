@@ -1,0 +1,69 @@
+$color-red: #A22;
+$color-blue: #22A;
+$color-grey: #333;
+
+@mixin colorButton($primaryColor) {
+	background-color: $primaryColor;
+	border-color: lighten($primaryColor, 30%);
+	box-shadow: 1px 2px 7px rgba(darken($primaryColor, 10%), 0.4);
+}
+
+body {
+	font-family: sans-serif; 
+}
+
+#technologies-list {
+	list-style: none;
+	padding: 0;
+}
+
+.technology {
+	display: flex;
+	align-items: center;
+	padding: 15px;
+	border-bottom: 1px solid rgba($color-grey, .1);
+
+	&-logo {
+		width: 50px;
+		height: 50px;
+		margin-right: 8px;
+	}
+
+	&-heading {
+		display: flex;
+		align-items: center;
+		margin: 0 0 4px;
+		font-size: 20px;
+	}
+
+	&-description {
+		margin: 0;
+		color: lighten($color-grey, 20%);
+	}
+
+	&-level {
+		display: inline-block;
+		margin-left: 8px;
+		padding: 1px 12px 2px;
+
+		border: 2px solid;
+		border-radius: 0 10px;
+
+		font-size: 10px;
+		text-transform: uppercase;
+		cursor: default;
+		color: white;
+
+		&-expert {
+			@include colorButton($color-red);
+		}
+
+		&-intermediate {
+			@include colorButton($color-blue);
+		}
+
+		&-basic {
+			@include colorButton($color-grey);
+		}
+	}
+}

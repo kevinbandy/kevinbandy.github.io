@@ -1,0 +1,58 @@
+body {
+  font-family: sans-serif;
+}
+
+#technologies-list {
+  list-style: none;
+  padding: 0;
+}
+
+.technology {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+}
+.technology-logo {
+  width: 50px;
+  height: 50px;
+  margin-right: 8px;
+}
+.technology-heading {
+  display: flex;
+  align-items: center;
+  margin: 0 0 4px;
+  font-size: 20px;
+}
+.technology-description {
+  margin: 0;
+  color: #666666;
+}
+.technology-level {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 1px 12px 2px;
+  border: 2px solid;
+  border-radius: 0 10px;
+  font-size: 10px;
+  text-transform: uppercase;
+  cursor: default;
+  color: white;
+}
+.technology-level-expert {
+  background-color: #A22;
+  border-color: #e68080;
+  box-shadow: 1px 2px 7px rgba(128, 26, 26, 0.4);
+}
+.technology-level-intermediate {
+  background-color: #22A;
+  border-color: #8080e6;
+  box-shadow: 1px 2px 7px rgba(26, 26, 128, 0.4);
+}
+.technology-level-basic {
+  background-color: #333;
+  border-color: gray;
+  box-shadow: 1px 2px 7px rgba(26, 26, 26, 0.4);
+}
+
+/*# sourceMappingURL=style.css.map */
