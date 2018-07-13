@@ -1,6 +1,8 @@
+$color-off-white: #F3F3F3;
 $color-red: #A22;
 $color-blue: #22A;
 $color-grey: #333;
+$color-light-grey: #CCC;
 $size-ipad: 1024px;
 
 @mixin colorButton($primaryColor) {
@@ -16,7 +18,8 @@ $size-ipad: 1024px;
 }
 
 body {
-	font-family: sans-serif; 
+	background: $color-off-white;
+	font-family: sans-serif;
 }
 
 #technologies-list {
@@ -34,7 +37,14 @@ body {
 	display: flex;
 	align-items: center;
 	padding: 15px;
-	border-bottom: 1px solid rgba($color-grey, .1);
+	background: white;
+    margin-bottom: 10px;
+    box-shadow: 1px 3px 8px $color-light-grey;
+
+    @include media($size-ipad) {
+    	margin-bottom: 30px;
+    	box-shadow: 7px 10px 30px $color-light-grey;
+    }
 
 	&-logo {
 		width: 50px;
