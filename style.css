@@ -4,7 +4,14 @@ body {
 
 #technologies-list {
   list-style: none;
+  max-width: 80%;
+  margin: 0 auto;
   padding: 0;
+}
+@media only screen and (max-width: 1024px) {
+  #technologies-list {
+    max-width: 90%;
+  }
 }
 
 .technology {
@@ -16,7 +23,15 @@ body {
 .technology-logo {
   width: 50px;
   height: 50px;
-  margin-right: 8px;
+  margin-right: 12px;
+}
+@media only screen and (max-width: 1024px) {
+  .technology-logo {
+    min-width: 150px;
+    width: 150px;
+    height: 150px;
+    margin-right: 40px;
+  }
 }
 .technology-heading {
   display: flex;
@@ -24,9 +39,19 @@ body {
   margin: 0 0 4px;
   font-size: 20px;
 }
+@media only screen and (max-width: 1024px) {
+  .technology-heading {
+    font-size: 3em;
+  }
+}
 .technology-description {
   margin: 0;
   color: #666666;
+}
+@media only screen and (max-width: 1024px) {
+  .technology-description {
+    font-size: 2em;
+  }
 }
 .technology-level {
   display: inline-block;
@@ -38,6 +63,12 @@ body {
   text-transform: uppercase;
   cursor: default;
   color: white;
+}
+@media only screen and (max-width: 1024px) {
+  .technology-level {
+    margin-left: 24px;
+    font-size: 0.4em;
+  }
 }
 .technology-level-expert {
   background-color: #A22;
