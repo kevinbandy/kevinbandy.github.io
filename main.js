@@ -15,6 +15,12 @@ function init() {
 		parallax(e, $('.parallax-scatter-large')[0], 4);
 	});
 
+	$('.profile-image').pressure({
+		change: function(force, event){
+			$('.parallax-browser').css('transform', 'scale(1 + ' + force + ')');
+		}
+	});
+
 }
 
 function parallax(e, target, multiplier) {
