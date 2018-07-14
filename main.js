@@ -26,8 +26,10 @@ function init() {
 	}
 
 	function deviceMotionHandler(e) {
-		var motion = smootheMotion(Math.floor(e.accelerationIncludingGravity.x * 100), Math.floor(e.accelerationIncludingGravity.y * 100));
-		$('#output').html('v2 movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y + 'translates to: x:' + motion.x + ', -' + motion.y );
+		var inputX = Math.floor(e.accelerationIncludingGravity.x * 100);
+		var inputY = Math.floor(e.accelerationIncludingGravity.y * 100);
+		var motion = smootheMotion(inputX, inputY);
+		$('#output').html('<pre>v2 movement: ' + inputX + ', ' + inputY + 'translates to: x:' + motion.x + ', -' + motion.y + '</pre><hr><pre>[' + motionBuffer + ']</pre>');
 		$('.parallax-browser').css('transform', 'translate(' + motion.x + 'px, ' + (motion.y * -1) + 'px)');
 	}
 
