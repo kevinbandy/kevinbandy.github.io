@@ -28,7 +28,7 @@ function init() {
 	function deviceMotionHandler(e) {
 		var motion = smootheMotion(e.accelerationIncludingGravity.x * 100, e.accelerationIncludingGravity.y * 100);
 		$('#output').html('v2 movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y + 'translates to: x:' + motion.x + ', -' + motion.y );
-		$('.parallax-browser').css('transform', 'translate(' + motion.x + 'px, -' + motion.y + 'px)');
+		$('.parallax-browser').css('transform', 'translate(' + motion.x + 'px, ' + motion.y + 'px)');
 	}
 
 	var maxBufferSize = 5;
