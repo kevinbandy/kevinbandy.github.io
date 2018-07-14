@@ -26,10 +26,35 @@ function init() {
 	}
 
 	function deviceMotionHandler(e) {
-		var x = e.accelerationIncludingGravity.x * 100;
-		var y = e.accelerationIncludingGravity.y * 100;
-		$('#output').html('movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
+		var motion = smootheMotion(e.accelerationIncludingGravity.x, e.accelerationIncludingGravity.y);
+		var x = motion.x * 100;
+		var y = motion.y * 100;
+		$('#output').html('v1 movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
 		$('.parallax-browser').css('transform', 'translate(' + x + 'px,' + y + 'px)');
+	}
+
+	var maxBufferSize = 15;
+	var motionBuffer = {
+		x: [],
+		y: []
+	};
+	function smootheMotion(x,y) {
+		motionBuffer.x.length >= maxBufferSize && motionBuffer.x.slice(0,1);
+		motionBuffer.y.length >= maxBufferSize && motionBuffer.y.slice(0,1);
+
+		motionBuffer.x.push(x);
+		motionBuffer.y.push(y);
+
+		return {
+			x: arrayAverage(motionBuffer.x),
+			y: arrayAverage(motionBuffer.y)
+		}
+	}
+
+	function arrayAverage(inputArray) {
+		return inputArray.reduce(function sumElements(accumulator, current) {
+			return accumulator + current;
+		}) / inputArray.length;
 	}
 
 }
