@@ -26,8 +26,10 @@ function init() {
 	}
 
 	function deviceMotionHandler(e) {
+		var x = e.accelerationIncludingGravity.x * 100;
+		var y = e.accelerationIncludingGravity.y * 100;
 		$('#output').html('movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
-		parallax({pageX: e.accelerationIncludingGravity.x, pageY: e.accelerationIncludingGravity.y}, $('.parallax-browser'), 1);
+		$('.parallax-browser').css('transform', 'translate(' + x + 'px,' + y + 'px)');
 	}
 
 }
