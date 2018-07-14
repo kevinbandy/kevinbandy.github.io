@@ -22,6 +22,7 @@ function init() {
 	});
 
 	$(window).on('devicemotion', function (e) {
+		$('#output').html('movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
 		parallax({pageX: e.accelerationIncludingGravity.x, pageY: e.accelerationIncludingGravity.y}, $('.parallax-browser'), 1);
 	})
 
