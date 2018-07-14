@@ -21,6 +21,10 @@ function init() {
 		}
 	});
 
+	$(window).on('devicemotion', function (e) {
+		parallax({pageX: e.accelerationIncludingGravity.x, pageY: e.accelerationIncludingGravity.y}, $('.parallax-browser'), 1);
+	})
+
 }
 
 function parallax(e, target, multiplier) {
