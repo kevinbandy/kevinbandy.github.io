@@ -1,18 +1,44 @@
 body {
   background: #F3F3F3;
   font-family: sans-serif;
+  margin: 0;
+}
+
+.hero {
+  background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+  margin-bottom: 20%;
+  text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+  .hero {
+    margin-bottom: 30%;
+  }
+}
+
+.profile-image {
+  width: 30%;
+  border-radius: 100%;
+  transform: translateY(50%);
+}
+@media only screen and (max-width: 1024px) {
+  .profile-image {
+    width: 50%;
+  }
+}
+
+section.section-technology {
+  width: 50%;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 1024px) {
+  section.section-technology {
+    width: 90%;
+  }
 }
 
 #technologies-list {
   list-style: none;
-  max-width: 80%;
-  margin: 0 auto;
   padding: 0;
-}
-@media only screen and (max-width: 1024px) {
-  #technologies-list {
-    max-width: 90%;
-  }
 }
 
 .technology {

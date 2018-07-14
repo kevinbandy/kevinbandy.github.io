@@ -20,17 +20,41 @@ $size-ipad: 1024px;
 body {
 	background: $color-off-white;
 	font-family: sans-serif;
+	margin: 0;
+}
+
+.hero {
+	background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    margin-bottom: 20%;
+    text-align: center;
+
+    @include media($size-ipad) {
+		margin-bottom: 30%;
+	}
+}
+
+.profile-image {
+	width: 30%;
+	border-radius: 100%;
+	transform: translateY(50%);
+
+	@include media($size-ipad) {
+		width: 50%;
+	}
+}
+
+section.section-technology {
+	width: 50%;
+	margin: 0 auto;
+
+	@include media($size-ipad) {
+    	width: 90%;
+    }
 }
 
 #technologies-list {
 	list-style: none;
-	max-width: 80%;
-    margin: 0 auto;
-    padding: 0;
-
-    @include media($size-ipad) {
-    	max-width: 90%;
-    }
+    padding: 0;    
 }
 
 .technology {
