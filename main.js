@@ -26,14 +26,12 @@ function init() {
 	}
 
 	function deviceMotionHandler(e) {
-		var motion = smootheMotion(e.accelerationIncludingGravity.x, e.accelerationIncludingGravity.y);
-		var x = motion.x * 100;
-		var y = motion.y * 100;
-		$('#output').html('v1 movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
-		$('.parallax-browser').css('transform', 'translate(' + x + 'px,' + y + 'px)');
+		var motion = smootheMotion(e.accelerationIncludingGravity.x * 100, e.accelerationIncludingGravity.y * 100);
+		$('#output').html('v2 movement: ' + e.accelerationIncludingGravity.x + ', ' + e.accelerationIncludingGravity.y);
+		$('.parallax-browser').css('transform', 'translate(' + motion.x + 'px,' + motion.y + 'px)');
 	}
 
-	var maxBufferSize = 15;
+	var maxBufferSize = 5;
 	var motionBuffer = {
 		x: [],
 		y: []
