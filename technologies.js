@@ -24,7 +24,7 @@ var technologies = [
 		competence: "95"
 	},
 	{
-		technology: "SaSS",
+		technology: "Sass",
 		level: "Expert",
 		description: "Deep knowledge of CSS pre-processors for efficient, maintainable code",
 		logo: "sass",

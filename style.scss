@@ -24,12 +24,52 @@ body {
 }
 
 .hero {
+	position: relative;
 	background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
     margin-bottom: 20%;
     text-align: center;
 
     @include media($size-ipad) {
 		margin-bottom: 30%;
+	}
+
+	.parallax-mask {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		overflow: hidden;
+
+		img {
+			position: absolute;
+
+			&.parallax-browser {
+				width: 19%;
+				top: 6%;
+				right: 8%;
+			}
+
+			&.parallax-browser-content {
+				width: 10%;
+				top: 17%;
+				right: 16%;
+			}
+
+			&.parallax-scatter-small {
+				width: 70%;
+				top: -4%;
+				left: 7%;
+				opacity: .6;
+			}
+
+			&.parallax-scatter-large {
+				width: 70%;
+				top: -14%;
+				left: 16%;
+				opacity: .8;
+			}
+		}
 	}
 }
 

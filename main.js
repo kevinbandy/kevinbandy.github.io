@@ -7,6 +7,21 @@ function init() {
 	technologies.forEach(function assembleTechnologiesList(technology) {
 		$('#technologies-list').append(buildTechnologyBlock(technology));
 	});
+
+	$('body').mousemove(function (e) {
+		parallax(e, $('.parallax-browser')[0], 1);
+		parallax(e, $('.parallax-browser-content')[0], 2);
+		parallax(e, $('.parallax-scatter-small')[0], .5);
+		parallax(e, $('.parallax-scatter-large')[0], 4);
+	});
+
+}
+
+function parallax(e, target, multiplier) {
+	var layer_coeff = 100 / multiplier;
+	var x = (e.pageX - ($(window).width() / 2)) / layer_coeff;
+	var y = (e.pageY - ($(window).height() / 2)) / layer_coeff;
+	$(target).css('transform', 'translate(' + x + 'px,' + y + 'px)');
 }
 
 function buildTechnologyBlock(technology) {
