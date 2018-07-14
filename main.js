@@ -29,11 +29,11 @@ function init() {
 		var inputX = Math.floor(e.accelerationIncludingGravity.x * 100);
 		var inputY = Math.floor(e.accelerationIncludingGravity.y * 100);
 		var motion = smootheMotion(inputX, inputY);
-		$('#output').html('<pre>v2 movement: ' + inputX + ', ' + inputY + 'translates to: x:' + motion.x + ', -' + motion.y + '</pre><hr><pre>[' + motionBuffer + ']</pre>');
+		$('#output').html('<pre>v2 movement: ' + inputX + ', ' + inputY + 'translates to: x:' + motion.x + ', ' + motion.y + '</pre><hr><pre>[' + motionBuffer + ']</pre>');
 		$('.parallax-browser').css('transform', 'translate(' + motion.x + 'px, ' + (motion.y * -1) + 'px)');
 	}
 
-	var maxBufferSize = 5;
+	var maxBufferSize = 3;
 	var motionBuffer = {
 		x: [],
 		y: []
