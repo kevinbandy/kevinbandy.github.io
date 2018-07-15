@@ -16,9 +16,17 @@ function init() {
 	});
 
 	$('.profile-image').pressure({
-		change: function(force, event){
-			$('.parallax-browser').css('transform', 'scale(' + (1 + force) + ')');
+		start: function startPressure() {
+			$('.profile-image').addClass('being-pressed');
+		},
+		end: function release() {
+			$('.profile-image').removeClass('being-pressed');
+			$('.tachometer-needle').css('transform', 'translateX(-50%) rotate(-90deg) scale(0.95)');
+		},
+		change: function(force, event) {
+			var angle = $.pressureMap(force, 0, 1, -90, 85);
 			$('#output-pressure').text(force);
+			$('.tachometer-needle').css('transform', 'translateX(-50%) rotate(' + angle + 'deg) scale(0.95)');
 		}
 	});
 
@@ -30,7 +38,7 @@ function init() {
 		var inputX = Math.floor(e.accelerationIncludingGravity.x * 10);
 		var inputY = Math.floor(e.accelerationIncludingGravity.y * 10 + 70);
 		//var motion = smootheMotion(inputX, inputY);
-		$('#output').html('<pre>v2 movement: ' + inputX + ', ' + inputY + '</pre>');// + 'translates to: x:' + motion.x + ', ' + motion.y + '</pre><hr><pre>[' + motionBuffer + ']</pre>');
+		//$('#output').html('<pre>v2 movement: ' + inputX + ', ' + inputY + '</pre>');// + 'translates to: x:' + motion.x + ', ' + motion.y + '</pre><hr><pre>[' + motionBuffer + ']</pre>');
 		$('.parallax-browser').css('transform', 'translate(' + inputX + 'px, ' + (inputY * -1) + 'px)');
 		$('.parallax-browser-content').css('transform', 'translate(' + (inputX * 2) + 'px, ' + (inputY * -2) + 'px)');
 		$('.parallax-scatter-small').css('transform', 'translate(' + (inputX * .5) + 'px, ' + (inputY * -.5) + 'px)');
