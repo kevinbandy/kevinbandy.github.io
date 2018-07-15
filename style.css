@@ -17,6 +17,18 @@ body {
     height: 50vw;
   }
 }
+.hero .name {
+  position: absolute;
+  top: 5vw;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #647280;
+}
+@media only screen and (max-width: 1024px) {
+  .hero .name {
+    font-size: 50px;
+  }
+}
 .hero .parallax-mask {
   position: absolute;
   top: 0;
@@ -117,14 +129,21 @@ body {
   opacity: 0.8;
 }
 
-section.section-technology {
+section {
   width: 50%;
-  margin: 0 auto;
+  margin: 0 auto 40px;
 }
 @media only screen and (max-width: 1024px) {
-  section.section-technology {
+  section {
     width: 90%;
   }
+}
+
+.section-about h1 {
+  text-align: center;
+}
+.section-about p, .section-about a {
+  color: #4d4d4d;
 }
 
 #technologies-list {
@@ -162,6 +181,7 @@ section.section-technology {
 }
 .technology-logo {
   width: 50px;
+  min-width: 50px;
   height: 50px;
   margin-right: 12px;
 }
