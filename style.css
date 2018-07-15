@@ -89,6 +89,21 @@ body {
     height: 50vw;
   }
 }
+.image-container .rpm-readout {
+  position: absolute;
+  display: block;
+  opacity: 0;
+  transition: all 300ms ease-in-out;
+  top: 15vw;
+  right: 0;
+  font-size: 24px;
+  font-style: italic;
+  color: #e77;
+}
+.image-container .rpm-readout.being-pressed {
+  opacity: 1;
+  right: -120px;
+}
 .image-container .profile-image {
   position: absolute;
   top: 0;

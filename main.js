@@ -18,14 +18,17 @@ function init() {
 	$('.profile-image').pressure({
 		start: function startPressure() {
 			$('.profile-image').addClass('being-pressed');
+			$('.rpm-readout').addClass('being-pressed');
 		},
 		end: function release() {
 			$('.profile-image').removeClass('being-pressed');
+			$('.rpm-readout').removeClass('being-pressed');
 			$('.tachometer-needle').css('transform', 'translateX(-50%) rotate(-90deg) scale(0.95)');
 		},
 		change: function(force, event) {
 			var angle = $.pressureMap(force, 0, 1, -90, 85);
-			$('#output-pressure').text(force);
+			var rpm = $.pressureMap(force, 0, 1, 800, 9000);
+			$('.rpm-readout').text(Math.floor(rpm) + ' RPM');
 			$('.tachometer-needle').css('transform', 'translateX(-50%) rotate(' + angle + 'deg) scale(0.95)');
 		}
 	});
