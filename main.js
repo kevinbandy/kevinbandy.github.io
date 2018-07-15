@@ -18,6 +18,7 @@ function init() {
 	$('.profile-image').pressure({
 		change: function(force, event){
 			$('.parallax-browser').css('transform', 'scale(' + (1 + force) + ')');
+			$('#output-pressure').text(force);
 		}
 	});
 
